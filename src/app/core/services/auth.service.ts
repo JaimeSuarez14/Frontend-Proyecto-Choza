@@ -36,7 +36,10 @@ export class AuthService {
   loginCliente(email: string, contrasena: string) {
     return this.http
       .post<any>(`${this.api}/auth/login-cliente`, { email, contrasena })
-      .pipe(tap((res) => this.guardarSesion(res.data)));
+      .pipe(tap((res) => {
+        console.log(res);
+        this.guardarSesion(res.data)}
+      ));
   }
 
   loginAdmin(usuario: string, contrasena: string) {

@@ -24,20 +24,15 @@ import { ToastService } from '../../../core/services/toast.service';
       <div class="flex gap-2 flex-wrap justify-center mb-8 fade-in">
         <button
           (click)="categoriaActiva.set('')"
-          [class.bg-cyan-700]="categoriaActiva() === ''"
-          [class.text-white]="categoriaActiva() === ''"
-          class="px-4 py-2 rounded-full text-sm font-medium border transition-all
-                 bg-white dark:bg-gray-800 dark:border-gray-600 hover:border-cyan-400"
+
+          [class]="'px-4 py-2 rounded-full text-sm font-medium border transition-all dark:bg-gray-800 dark:border-gray-600 hover:border-cyan-400 ' + (categoriaActiva() === '' ? 'bg-cyan-700 text-white dark:text-cyan-700 dark:bg-white': ' dark:text-white  ') "
         >
           🌟 Todos
         </button>
         @for (cat of categorias(); track cat) {
           <button
             (click)="categoriaActiva.set(cat)"
-            [class.bg-cyan-700]="categoriaActiva() === cat"
-            [class.text-white]="categoriaActiva() === cat"
-            class="px-4 py-2 rounded-full text-sm font-medium border transition-all
-                   bg-white dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 hover:border-cyan-400"
+            [class]="'px-4 py-2 rounded-full text-sm font-medium border transition-all dark:bg-gray-800 dark:border-gray-600 hover:border-cyan-400 ' + (categoriaActiva() === cat ? 'bg-cyan-700 text-white dark:text-cyan-700 dark:bg-white': 'dark:text-white ') "
           >
             {{ cat }}
           </button>
@@ -85,7 +80,7 @@ import { ToastService } from '../../../core/services/toast.service';
                       (error)="onImgError($event)"
                     />
                     <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                      class="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                     ></div>
                   </div>
                   <div class="p-4">
@@ -107,16 +102,16 @@ import { ToastService } from '../../../core/services/toast.service';
                         >
                           <button
                             (click)="decQty(p.id_plato)"
-                            class="w-7 h-7 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-bold"
+                            class="w-7 h-7 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-bold dark:text-gray-200"
                           >
                             −
                           </button>
-                          <span class="w-7 text-center text-xs font-medium">{{
+                          <span class="w-7 text-center text-xs font-medium  dark:text-gray-200">{{
                             getCantidad(p.id_plato)
                           }}</span>
                           <button
                             (click)="incQty(p.id_plato)"
-                            class="w-7 h-7 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-bold"
+                            class="w-7 h-7 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-bold  dark:text-gray-200"
                           >
                             +
                           </button>
