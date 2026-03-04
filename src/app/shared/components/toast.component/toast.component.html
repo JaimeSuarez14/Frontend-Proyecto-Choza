@@ -1,0 +1,9 @@
+<div class="fixed bottom-4 right-4 z-9999 flex flex-col gap-2 max-w-sm">
+  @for (t of toast.toasts(); track t.id) {
+  <div class="flex items-start gap-3 p-4 rounded-xl shadow-xl text-sm font-medium border" [class]="clases(t.tipo)">
+    <span class="text-lg shrink-0">{{ icono(t.tipo) }}</span>
+    <span class="flex-1">{{ t.mensaje }}</span>
+    <button (click)="toast.remove(t.id)" class="opacity-60 hover:opacity-100">✕</button>
+  </div>
+  }
+</div>

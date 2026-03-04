@@ -1,0 +1,49 @@
+<footer class="bg-cyan-950 dark:bg-gray-950 text-white mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+    <!-- Brand -->
+    <div class="text-center md:text-left">
+      <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+        <div class="w-14 h-14 rounded-full bg-cyan-600 flex items-center justify-center text-3xl shadow">🐟</div>
+        <div>
+          <h2 class="font-bold text-xl text-yellow-400">La Choza Náutica</h2>
+          <p class="text-xs text-cyan-300">Sabores del mar 🌊</p>
+        </div>
+      </div>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        Los mejores platos del mar en Ica, Perú. Tradición y sabor en cada bocado.
+      </p>
+      <a routerLink="/auth/login-admin"
+        class="inline-block mt-4 text-xs text-cyan-400 hover:text-yellow-400 transition-colors">
+        Admin →
+      </a>
+    </div>
+
+    <!-- Síguenos -->
+    <div class="text-center">
+      <h3 class="font-bold text-yellow-400 mb-4 text-lg">Síguenos</h3>
+      <ul class="space-y-2 text-gray-300 text-sm">
+        <li><a href="https://www.facebook.com/lachozanauticaica" target="_blank"
+            class="hover:text-yellow-400 transition-colors flex items-center justify-center gap-2">📘 Facebook</a></li>
+        <li><a href="https://www.instagram.com/lachozanauticaica" target="_blank"
+            class="hover:text-yellow-400 transition-colors flex items-center justify-center gap-2">📸 Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@la.choza.nautica" target="_blank"
+            class="hover:text-yellow-400 transition-colors flex items-center justify-center gap-2">🎵 TikTok</a></li>
+      </ul>
+    </div>
+
+    <!-- Contacto -->
+    <div class="text-center md:text-right">
+      <h3 class="font-bold text-yellow-400 mb-4 text-lg">Contáctanos</h3>
+      <ul class="space-y-2 text-gray-300 text-sm">
+        <li>📍 Av. del Mar 1450, Ica - Perú</li>
+        <li>📞 (056) 567-8900</li>
+        <li>📧 reservas&#64;lachozanautica.pe</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-cyan-900 py-4 text-center text-xs text-gray-400">
+    © {{ year }} La Choza Náutica · Todos los derechos reservados
+  </div>
+</footer>

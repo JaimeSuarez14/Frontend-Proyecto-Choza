@@ -1,1 +1,102 @@
-<p>header.component works!</p>
+<header
+  class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+
+    <!-- Brand -->
+    <a routerLink="/" class="flex items-center gap-3 group">
+      <div
+        class="w-10 h-10 rounded-full bg-cyan-700 flex items-center justify-center text-white text-xl shadow group-hover:scale-105 transition-transform">
+        🐟</div>
+      <div class="hidden sm:block">
+        <span class="font-bold text-base text-cyan-800 dark:text-cyan-300 block leading-none">La Choza Náutica</span>
+        <span class="text-xs text-gray-400">Sabores del Mar</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-1">
+      <a routerLink="/" [routerLinkActiveOptions]="{exact:true}"
+        routerLinkActive="!bg-cyan-50 dark:!bg-gray-700 !text-cyan-700" class="nav-link">🏠 Inicio</a>
+      <a routerLink="/nosotros" routerLinkActive="!bg-cyan-50 dark:!bg-gray-700 !text-cyan-700" class="nav-link">👥
+        Nosotros</a>
+      <a routerLink="/menu" routerLinkActive="!bg-cyan-50 dark:!bg-gray-700 !text-cyan-700" class="nav-link">🍽️
+        Menú</a>
+      @if (auth.isAdmin()) {
+      <a routerLink="/admin" routerLinkActive="!bg-cyan-700 !text-white"
+        class="nav-link font-semibold bg-cyan-100 text-cyan-800">🛡️ Gestionar</a>
+      }
+    </nav>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-2">
+
+      <!-- Toggle tema -->
+      <button (click)="theme.toggle()" [title]="theme.theme()==='dark'?'Modo claro':'Modo oscuro'"
+        class="w-9 h-9 rounded-lg flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-lg transition-colors">
+        {{ theme.theme() === 'dark' ? '☀️' : '🌙' }}
+      </button>
+
+      <!-- Carrito -->
+      <a routerLink="/carrito"
+        class="relative w-9 h-9 rounded-lg flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-cyan-100 dark:hover:bg-cyan-900/40 text-lg transition-colors">
+        🛒
+        @if (carrito.totalItems() > 0) {
+        <span
+          class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-cyan-700 text-white text-xs font-bold flex items-center justify-center">
+          {{ carrito.totalItems() > 9 ? '9+' : carrito.totalItems() }}
+        </span>
+        }
+      </a>
+
+      <!-- Usuario -->
+      @if (auth.isLoggedIn()) {
+      <div class="relative">
+        <button (click)="menuOpen.set(!menuOpen())"
+          class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-700 text-white hover:bg-cyan-800 text-sm font-medium transition-colors">
+          <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">{{
+            auth.nombreUsuario()[0]?.toUpperCase() }}</span>
+          <span class="hidden sm:inline max-w-20 truncate">{{ auth.nombreUsuario() }}</span>
+          <span class="text-xs">{{ menuOpen() ? '▲' : '▼' }}</span>
+        </button>
+        @if (menuOpen()) {
+        <div class="absolute right-0 mt-2 w-48 card shadow-xl py-1 z-50" (mouseleave)="menuOpen.set(false)">
+          @if (auth.isCliente()) {
+          <a routerLink="/cliente/historial" (click)="menuOpen.set(false)" class="dropdown-item">📋 Mis pedidos</a>
+          <a routerLink="/cliente/resenas" (click)="menuOpen.set(false)" class="dropdown-item">⭐ Mis reseñas</a>
+          }
+          <hr class="my-1 border-gray-100 dark:border-gray-700">
+          <button (click)="logout()" class="w-full dropdown-item text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20">
+            🚪 Cerrar sesión
+          </button>
+        </div>
+        }
+      </div>
+      } @else {
+      <a routerLink="/auth/login"
+        class="px-4 py-1.5 rounded-lg bg-cyan-700 text-white hover:bg-cyan-800 text-sm font-medium transition-colors">
+        Ingresar
+      </a>
+      }
+
+      <!-- Mobile toggle -->
+      <button (click)="navOpen.set(!navOpen())"
+        class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center bg-gray-100 dark:bg-gray-700 text-lg">
+        {{ navOpen() ? '✕' : '☰' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+  @if (navOpen()) {
+  <nav
+    class="md:hidden border-t border-gray-100 dark:border-gray-700 px-4 py-3 flex flex-col gap-1 bg-white dark:bg-gray-900">
+    <a routerLink="/" (click)="navOpen.set(false)" class="nav-link-mobile">🏠 Inicio</a>
+    <a routerLink="/nosotros" (click)="navOpen.set(false)" class="nav-link-mobile">👥 Nosotros</a>
+    <a routerLink="/menu" (click)="navOpen.set(false)" class="nav-link-mobile">🍽️ Menú</a>
+    @if (auth.isAdmin()) {
+    <a routerLink="/admin" (click)="navOpen.set(false)" class="nav-link-mobile font-semibold text-cyan-700">🛡️
+      Gestionar</a>
+    }
+  </nav>
+  }
+</header>
