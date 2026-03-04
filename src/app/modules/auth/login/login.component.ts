@@ -10,7 +10,7 @@ import { ToastService } from '../../../core/services/toast.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   template: `
-    <div class="min-h-screen bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center px-4">
+    <div class="min-h-screen bg-linear-to-br from-cyan-50 to-cyan-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center px-4">
       <div class="w-full max-w-md">
 
         <!-- Card -->
@@ -25,12 +25,12 @@ import { ToastService } from '../../../core/services/toast.service';
           <div class="flex bg-gray-100 dark:bg-gray-700 rounded-xl p-1 mb-6">
             <button (click)="modo.set('cliente')" class="flex-1 py-2 text-sm font-medium rounded-lg transition-all"
               [class.bg-white]="modo()==='cliente'" [class.dark:bg-gray-600]="modo()==='cliente'"
-              [class.shadow]="modo()==='cliente'" [class.text-cyan-700]="modo()==='cliente'">
+              [class.shadow]="modo()==='cliente'" [class.dark:text-cyan-100]="modo()==='cliente'" [class.text-cyan-600]="modo()==='cliente'">
               👤 Cliente
             </button>
             <button (click)="modo.set('admin')" class="flex-1 py-2 text-sm font-medium rounded-lg transition-all"
               [class.bg-white]="modo()==='admin'" [class.dark:bg-gray-600]="modo()==='admin'"
-              [class.shadow]="modo()==='admin'" [class.text-cyan-700]="modo()==='admin'">
+              [class.shadow]="modo()==='admin'" [class.dark:text-cyan-100]="modo()==='admin'" [class.text-cyan-600]="modo()==='admin'">
               🛡️ Admin
             </button>
           </div>

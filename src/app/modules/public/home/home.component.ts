@@ -12,7 +12,7 @@ import { ToastService } from '../../../core/services/toast.service';
   template: `
     <!-- Hero Banner (como el original) -->
     <section class="relative overflow-hidden min-h-72 flex flex-col justify-center text-white"
-      style="background: linear-gradient(rgba(0,60,92,0.75), rgba(0,96,100,0.85)), url('/assets/img/choza.jpg') center/cover;">
+      style="background: linear-gradient(rgba(0,60,92,0.75), rgba(0,96,100,0.85)), url('/assets/choza.jpg') center/cover;">
       <div class="max-w-7xl mx-auto px-6 py-16 fade-in">
         <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">
           🌊 Bienvenido a La Choza Náutica
@@ -25,7 +25,7 @@ import { ToastService } from '../../../core/services/toast.service';
             🍽️ Ver Menú completo
           </a>
           <a routerLink="/nosotros" class="px-6 py-3 rounded-xl border-2 border-white text-white hover:bg-white hover:text-cyan-900 font-semibold transition-all text-base">
-            Conócenos
+            Conócenosss
           </a>
         </div>
       </div>
