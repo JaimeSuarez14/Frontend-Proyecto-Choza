@@ -154,6 +154,6 @@ export class PlatosAdminComponent implements OnInit {
     });
   }
 
-  imgUrl(img: string): string { return img ? `http://localhost/choza-api/uploads/platos/${img}` : '/assets/img/noimage.jpg'; }
-  onImgError(e: Event): void { (e.target as HTMLImageElement).src = '/assets/img/noimage.jpg'; }
+  imgUrl(img: string): string { return img ? `http://localhost:8080/uploads/platos/${img}` : '/assets/noimage.jpg'; }
+  onImgError(e: Event): void { (e.target as HTMLImageElement).src = '/assets/noimage.jpg'; }
 }

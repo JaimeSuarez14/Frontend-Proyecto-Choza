@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 .nav-link {
   @apply flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
 }

@@ -215,11 +215,13 @@ export class AdminPlatosComponent implements OnInit {
     this.api.eliminarPlato(id).subscribe(() => this.cargar());
   }
   imgUrl(img: string): string {
+    console.log(`${environment.apiUrl.replace('/api', '')}/uploads/platos/${img}`);
+
     return img
       ? `${environment.apiUrl.replace('/api', '')}/uploads/platos/${img}`
-      : '/assets/img/noimage.jpg';
+      : '/assets/noimage.jpg';
   }
   onImgError(e: Event): void {
-    (e.target as HTMLImageElement).src = '/assets/img/noimage.jpg';
+    (e.target as HTMLImageElement).src = '/assets/noimage.jpg';
   }
 }
