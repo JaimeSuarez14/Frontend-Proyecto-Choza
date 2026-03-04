@@ -147,10 +147,10 @@ export class HomeComponent implements OnInit {
   }
 
   imgUrl(img: string): string {
-    return img ? `http://localhost/choza-api/uploads/platos/${img}` : '/assets/img/noimage.jpg';
+    return img ? `http://localhost:8080/uploads/platos/${img}` : '/assets/noimage.jpg';
   }
 
   onImgError(e: Event): void {
-    (e.target as HTMLImageElement).src = '/assets/img/noimage.jpg';
+    (e.target as HTMLImageElement).src = '/assets/noimage.jpg';
   }
 }

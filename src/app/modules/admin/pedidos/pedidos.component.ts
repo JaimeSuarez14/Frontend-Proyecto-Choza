@@ -99,6 +99,7 @@ import { Pedido } from '../../../core/interfaces/pedido';
   </div>
 
   <!-- Modal detalle pedido -->
+   <!--
   @if (pedidoDetalle()) {
     <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
          (click)="pedidoDetalle.set(null)">
@@ -113,9 +114,9 @@ import { Pedido } from '../../../core/interfaces/pedido';
         </div>
         <div class="space-y-3 text-sm">
           <div class="grid grid-cols-2 gap-2 text-gray-600 dark:text-gray-400">
-            <div><b>Cliente:</b> {{ pedidoDetalle()!.cliente_nombre }}</div>
-            <div><b>Email:</b> {{ pedidoDetalle()!.cliente_email }}</div>
-            <div><b>Pago:</b> {{ pedidoDetalle()!.metodo_pago }}</div>
+            <div><b>Cliente:</b> {{ pedidoDetalle()!.cliente.nombre }}</div>
+            <div><b>Email:</b> {{ pedidoDetalle()!.cliente.email }}</div>
+            <div><b>Pago:</b> {{ pedidoDetalle()!.pago.nombre }}</div>
             <div><b>Estado:</b> {{ pedidoDetalle()!.estado }}</div>
             @if (pedidoDetalle()!.notas) {
               <div class="col-span-2"><b>Notas:</b> {{ pedidoDetalle()!.notas }}</div>
@@ -141,9 +142,10 @@ import { Pedido } from '../../../core/interfaces/pedido';
         </div>
       </div>
     </div>
-  }
+      } -->
 
   <!-- Modal cambiar estado -->
+   <!--
   @if (pedidoEditar()) {
     <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
          (click)="pedidoEditar.set(null)">
@@ -167,8 +169,9 @@ import { Pedido } from '../../../core/interfaces/pedido';
         </div>
       </div>
     </div>
-  }
-  `
+  } -->
+`
+
 })
 export class AdminPedidosComponent implements OnInit {
   private api = inject(ApiService);
@@ -213,17 +216,17 @@ export class AdminPedidosComponent implements OnInit {
     this.api.getPedido(p.id_pedido).subscribe(res => this.pedidoDetalle.set(res.pedido));
   }
 
-  guardarEstado(): void {
+  /*guardarEstado(): void {
     const p = this.pedidoEditar();
     if (!p) return;
     this.api.cambiarEstadoPedido(p.id_pedido, this.nuevoEstado).subscribe(() => {
       this.pedidoEditar.set(null);
       this.cargar();
     });
-  }
+  }*/
 
   eliminar(id: number): void {
-    if (!confirm(`¿Eliminar pedido #${id}?`)) return;
+    if (!confirm("Eliminar este pedido?")) return;
     this.api.eliminarPedido(id).subscribe(() => this.cargar());
   }
 
