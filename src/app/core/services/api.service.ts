@@ -124,4 +124,8 @@ export class ApiService {
   crearResena(data: any) {
     return this.http.post<any>(`${this.base}/resenas`, data);
   }
+
+  getResenasCliente(id_cliente: number) {
+    return this.http.get<any>(`${this.base}/resenas/cliente/${id_cliente}`);
+  }
 }

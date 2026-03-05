@@ -37,7 +37,7 @@ import { AuthService } from '../../core/services/auth.service';
                class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
                       text-cyan-200 hover:bg-cyan-800/50 hover:text-white transition-all"
                [title]="!sidebarOpen() ? link.label : ''">
-              <span class="text-lg flex-shrink-0">{{ link.icon }}</span>
+              <span class="text-lg shrink-0">{{ link.icon }}</span>
               @if (sidebarOpen()) { <span>{{ link.label }}</span> }
             </a>
           }
@@ -52,7 +52,7 @@ import { AuthService } from '../../core/services/auth.service';
           </button>
           @if (sidebarOpen()) {
             <div class="flex items-center gap-2 px-2">
-              <div class="w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+              <div class="w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center text-white text-sm font-bold shrink-0">
                 {{ auth.nombreUsuario()[0]?.toUpperCase() }}
               </div>
               <div class="min-w-0">
