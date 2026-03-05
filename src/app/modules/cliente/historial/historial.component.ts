@@ -2,11 +2,12 @@ import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../core/services/api.service';
 import { AuthService } from '../../../core/services/auth.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-historial',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   template: ` <div class="max-w-4xl mx-auto px-4 py-10">
     <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">📋 Mis Pedidos</h1>
     @if (cargando()) {
@@ -25,11 +26,14 @@ import { AuthService } from '../../../core/services/auth.service';
               <p class="text-xs text-gray-400">{{ p.fecha_pedido | date: 'dd/MM/yyyy HH:mm' }}</p>
               <p class="text-xs text-gray-500">{{ p.metodo_pago }}</p>
             </div>
-            <div class="text-right">
-              <p class="font-bold text-gray-800 dark:text-gray-100">
-                S/ {{ p.monto_total | number: '1.2-2' }}
-              </p>
-              <span class="estado-badge bg-amber-100 text-amber-800 text-xs">{{ p.estado }}</span>
+            <div class="flex gap-2 items-center">
+              <div class="text-right">
+                <p class="font-bold text-gray-800 dark:text-gray-100">
+                  S/ {{ p.monto_total | number: '1.2-2' }}
+                </p>
+                <span class="estado-badge bg-amber-100 text-amber-800 text-xs">{{ p.estado }}</span>
+              </div>
+              <a class="p-2 bg-gray-200 hover:bg-gray-300 rounded-lg" routerLink="/cliente/detallepedido" [queryParams]="{ id: p.id_pedido }">👁️</a>
             </div>
           </div>
         }

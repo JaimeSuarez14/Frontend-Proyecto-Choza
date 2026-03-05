@@ -57,6 +57,19 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./modules/cliente/resenas/resenas.component').then((m) => m.ResenasComponent),
   },
+  {
+    path: 'cliente/resena/calificar',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./modules/cliente/historial/calificar/CalificarProductoComponent')
+      ,
+  },
+  {
+    path: 'cliente/detallepedido',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./modules/cliente/historial/detalle-pedido-component/detalle-pedido-component'),
+  },
 
   // Admin (con layout)
   {

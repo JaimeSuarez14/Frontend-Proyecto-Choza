@@ -12,7 +12,7 @@ import { AuthService } from '../../core/services/auth.service';
 
       <!-- Sidebar -->
       <aside [class.w-64]="sidebarOpen()" [class.w-16]="!sidebarOpen()"
-        class="bg-cyan-950 dark:bg-gray-950 flex flex-col transition-all duration-300 flex-shrink-0">
+        class="bg-cyan-950 dark:bg-gray-950 flex flex-col transition-all duration-300 shrink-0">
 
         <!-- Logo -->
         <div class="h-16 flex items-center px-4 border-b border-cyan-900/50">
