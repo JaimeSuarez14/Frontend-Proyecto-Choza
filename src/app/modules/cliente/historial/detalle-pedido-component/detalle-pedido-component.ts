@@ -20,6 +20,7 @@ export default class DetallePedidoComponent implements OnInit {
   faCreditCard = faCreditCard;
   faUtensils = faUtensils;
   faStarHalfStroke = faStarHalfStroke;
+  public isAdmin = signal(false);
 
   pedido = signal<any>(null);
   cargando = signal(true);
@@ -28,7 +29,9 @@ export default class DetallePedidoComponent implements OnInit {
     // Obtenemos el ID desde los queryParams (?id=X)
     this.route.queryParams.subscribe(params => {
       const id = params['id'];
+      const isAdmin = params['isAdmin'];
       if (id) {
+        this.isAdmin.set(isAdmin);
         this.cargarDetalle(id);
       } else {
         this.cargando.set(false);
@@ -39,6 +42,8 @@ export default class DetallePedidoComponent implements OnInit {
   cargarDetalle(id: number) {
     this.api.getPedido(id).subscribe({
       next: (r) => {
+        console.log(r.pedido);
+
         // Según tu backend: $this->ok(['pedido' => $pedido]);
         this.pedido.set(r.pedido);
         this.cargando.set(false);

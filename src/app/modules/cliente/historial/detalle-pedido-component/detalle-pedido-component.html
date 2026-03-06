@@ -1,4 +1,4 @@
-<div class="max-w-3xl mx-auto px-4 py-10">
+<div class="max-w-3xl mx-auto px-4 py-10 animate-fade-in-up">
   <button routerLink="/cliente/historial"
     class="flex items-center text-sm text-gray-500 hover:text-cyan-600 mb-6 transition-colors">
     <fa-icon [icon]="faArrowLeft"></fa-icon> Volver al historial
@@ -29,7 +29,7 @@
     </div>
 
     <div class="p-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 pb-8 border-b border-gray-100 dark:border-gray-700">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5 pb-5 border-b border-gray-100 dark:border-gray-700">
         <div>
           <h3 class="text-gray-400 text-xs uppercase font-bold mb-3 tracking-widest">Entregar a:</h3>
           <p class="font-bold text-gray-800 dark:text-gray-100 text-lg">{{ pedido().cliente_nombre }}</p>
@@ -51,7 +51,7 @@
       </h3>
       <div class="space-y-4 mb-10">
         @for (item of pedido().items; track item.id_detalle) {
-        <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/30 rounded-xl">
+        <div class="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-700/30 rounded-xl">
           <div class="flex items-center gap-4">
             <div class="w-16 h-16 rounded-lg overflow-hidden bg-gray-200 shadow-inner">
               <img [src]="imgUrl(item.imagen) || 'assets/no-image.jpg'" class="w-full h-full object-cover">

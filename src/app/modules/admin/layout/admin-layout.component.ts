@@ -15,7 +15,7 @@ import { filter } from 'rxjs/operators';
     <!-- Sidebar -->
     <aside [class.w-64]="sidebarOpen()"
            [class.w-16]="!sidebarOpen()"
-           class="bg-ocean text-white flex-shrink-0 transition-all duration-300
+           class="bg-ocean text-white shrink-0 transition-all duration-300
                   flex flex-col shadow-xl z-40">
 
       <!-- Header sidebar -->
@@ -55,7 +55,7 @@ import { filter } from 'rxjs/operators';
                     text-gray-300 hover:bg-white/10 hover:text-white
                     transition-all duration-200 group"
              [title]="!sidebarOpen() ? link.label : ''">
-            <i [class]="'fa-solid ' + link.icon + ' w-5 text-center flex-shrink-0'"></i>
+            <i [class]="'fa-solid ' + link.icon + ' w-5 text-center shrink-0'"></i>
             @if (sidebarOpen()) {
               <span class="text-sm font-medium animate-fade-in">{{ link.label }}</span>
               @if (link.badge) {

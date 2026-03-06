@@ -6,9 +6,9 @@
   </button>
 
   <div
-    class="fade-in-up bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700">
+    class=" animate-fade-in-up bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700">
 
-    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-8 text-white text-center">
+    <div class="bg-linear-to-br from-blue-600 to-indigo-700 p-8 text-white text-center">
       <div class="inline-flex p-4 bg-white/20 rounded-full mb-4 backdrop-blur-md">
         <fa-icon [icon]="faUtensils" class="text-3xl"></fa-icon>
       </div>
@@ -39,7 +39,7 @@
         <label class="block text-sm font-bold text-gray-700 dark:text-gray-300">Cuéntanos más detalles
           (Opcional)</label>
         <textarea [(ngModel)]="comentario" placeholder="¿El sabor fue lo que esperabas? ¿La temperatura era correcta?"
-          class="w-full p-4 h-32 bg-gray-50 dark:bg-gray-700 border-2 border-transparent focus:border-blue-500 focus:bg-white rounded-2xl transition-all outline-none resize-none text-gray-700 dark:text-white"></textarea>
+          class="w-full p-4 h-32 bg-gray-50 dark:bg-gray-700 border-2 border-transparent focus:border-blue-500 focus:bg-white rounded-2xl transition-all outline-none resize-none text-gray-700 dark:text-gray-500"></textarea>
       </div>
 
       <button (click)="enviarResena()" [disabled]="calificacion() === 0 || enviando()"
@@ -55,3 +55,4 @@
     </div>
   </div>
 </div>
+<app-toast />
