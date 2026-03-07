@@ -59,7 +59,7 @@ import { ToastService } from '../../../core/services/toast.service';
             <div class="card animate-pulse h-80"></div>
           }
         </div>
-      } @else {
+      } @else if(categoriasConPlatos().length > 0) {
         @for (cat of categoriasConPlatos(); track cat.nombre) {
           <div class="mb-10 fade-in">
             <div class="flex items-center gap-3 mb-5">
@@ -130,6 +130,8 @@ import { ToastService } from '../../../core/services/toast.service';
             </div>
           </div>
         }
+      } @else {
+         <div class="card animate-pulse h-80 leading-5 text-center">No hay resultados en tu busqueda</div>
       }
     </div>
 
@@ -160,15 +162,15 @@ export class MenuComponent implements OnInit {
   categorias = signal<string[]>([]);
   cargando = signal(true);
   categoriaActiva = signal('');
-  busqueda = '';
+  busqueda = signal('');
   cantidades: Record<number, number> = {};
 
   platosFiltrados = computed(() => {
     let lista = this.platos();
     if (this.categoriaActiva()) lista = lista.filter((p) => p.categoria === this.categoriaActiva());
-    if (this.busqueda.trim())
+    if (this.busqueda().trim())
       lista = lista.filter((p) =>
-        p.nombre_plato.toLowerCase().includes(this.busqueda.toLowerCase()),
+        p.nombre_plato.toLowerCase().includes(this.busqueda().toLowerCase()),
       );
     return lista;
   });

@@ -1,7 +1,7 @@
 <div class="max-w-3xl mx-auto px-4 py-10 animate-fade-in-up">
-  <button routerLink="/cliente/historial"
+  <button [routerLink]=" isAdmin() ? '/admin/pedidos' : '/cliente/historial'"
     class="flex items-center text-sm text-gray-500 hover:text-cyan-600 mb-6 transition-colors">
-    <fa-icon [icon]="faArrowLeft"></fa-icon> Volver al historial
+    <fa-icon [icon]="faArrowLeft" class="me-2"></fa-icon> {{ isAdmin() ? 'Ver Pedidos' : 'Volver al historial' }}
   </button>
 
   @if (cargando()) {
@@ -49,7 +49,7 @@
       <h3 class="text-gray-800 dark:text-gray-100 font-bold mb-4 flex items-center">
         <fa-icon class="mr-2 text-cyan-600" [icon]="faUtensils"></fa-icon> Resumen del Pedido
       </h3>
-      <div class="space-y-4 mb-10">
+      <div class="space-y-4 mb-5">
         @for (item of pedido().items; track item.id_detalle) {
         <div class="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-700/30 rounded-xl">
           <div class="flex items-center gap-4">
@@ -77,7 +77,7 @@
         }
       </div>
 
-      <p class="font-extralight text-gray-500 py-2">** Presiona la estrellita para calificar el producto</p>
+      <p class="font-extralight text-gray-500 pb-4 text-sm">** Presiona la estrellita para calificar el producto</p>
 
       <div class="bg-gray-900 text-white rounded-2xl p-6">
         <div class="flex justify-between items-center text-lg">

@@ -71,6 +71,13 @@ export const routes: Routes = [
       import('./modules/cliente/historial/detalle-pedido-component/detalle-pedido-component'),
   },
 
+   {
+    path: 'cliente/perfil',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./modules/cliente/perfil.cliente/perfil.cliente'),
+  },
+
   // Admin (con layout)
   {
     path: 'admin',
@@ -116,6 +123,13 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./modules/admin/ventas/ventas-admin.component').then(
             (m) => m.VentasAdminComponent,
+          ),
+      },
+      {
+        path: 'personas',
+        loadComponent: () =>
+          import('./modules/admin/personas/GestionPersonas').then(
+            (m) => m.GestionPersonas,
           ),
       },
       {

@@ -105,7 +105,7 @@ import { ToastService } from '../../../core/services/toast.service';
                   <td>
                     <div class="flex gap-1">
                       <a
-                        [routerLink]="['/cliente/detallepedido']" [queryParams]="{ id: p.id_pedido }"
+                        [routerLink]="['/cliente/detallepedido']" [queryParams]="{ id: p.id_pedido, isAdmin: true }"
                         class="w-8 h-8 flex items-center justify-center rounded-lg bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 hover:bg-cyan-100 text-sm"
                       >
                         👁️

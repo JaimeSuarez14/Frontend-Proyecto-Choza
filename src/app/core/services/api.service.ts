@@ -24,7 +24,7 @@ export class ApiService {
     return this.http.post<any>(`${this.base}/platos`, data);
   }
   actualizarPlato(id: number, data: FormData) {
-    return this.http.put<any>(`${this.base}/platos/${id}`, data);
+    return this.http.post<any>(`${this.base}/platos/${id}`, data);
   }
   eliminarPlato(id: number) {
     return this.http.delete<any>(`${this.base}/platos/${id}`);
@@ -127,5 +127,41 @@ export class ApiService {
 
   getResenasCliente(id_cliente: number) {
     return this.http.get<any>(`${this.base}/resenas/cliente/${id_cliente}`);
+  }
+
+  // --- GESTIÓN DE CLIENTES ---
+  getClientes(search: string = '') {
+    const params = new HttpParams().set('search', search);
+    return this.http.get<any>(`${this.base}/clientes`, { params });
+  }
+
+  crearCliente(data: any)  {
+    return this.http.post<any>(`${this.base}/clientes`, data);
+  }
+
+  actualizarCliente(id: number, data: any) {
+    return this.http.put<any>(`${this.base}/clientes/${id}`, data);
+  }
+
+  eliminarCliente(id: number) {
+    return this.http.delete<any>(`${this.base}/clientes/${id}`);
+  }
+
+  // --- GESTIÓN DE USUARIOS ---
+  getUsuarios(search: string = '')  {
+    const params = new HttpParams().set('search', search);
+    return this.http.get<any>(`${this.base}/usuarios`, { params });
+  }
+
+  crearUsuario(data: any){
+    return this.http.post<any>(`${this.base}/usuarios`, data);
+  }
+
+  actualizarUsuario(id: number, data: any){
+    return this.http.put<any>(`${this.base}/usuarios/${id}`, data);
+  }
+
+  eliminarUsuario(id: number){
+    return this.http.delete<any>(`${this.base}/usuarios/${id}`);
   }
 }

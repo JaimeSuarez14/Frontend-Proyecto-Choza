@@ -77,4 +77,20 @@ export class AuthService {
       return null;
     }
   }
+
+  verPerfil() {
+    const id = this.loadUser()?.id
+    return this.http.get<any>(`${this.api}/auth/perfilUsuario/${id}`) ;
+  }
+
+  actualizarCampo(id_cliente: number, campo: string, valor: any) {
+    // Estructura que espera tu controlador PHP
+    const body = {
+      id_cliente,
+      campo,
+      valor
+    };
+
+    return this.http.post(`${this.api}/auth/actualizarDato`, body);
+  }
 }

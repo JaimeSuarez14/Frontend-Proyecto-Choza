@@ -14,7 +14,7 @@ import { ApiService } from '../../../core/services/api.service';
           <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">📊 Dashboard</h1>
           <p class="text-gray-500 dark:text-gray-400 text-sm">Resumen de ventas y operaciones</p>
         </div>
-        <span class="text-xs dark:text-yellow-600 mt-1 text-amber-900">{{ hoy() }}</span>
+        <span class="font-bold dark:text-yellow-600 mt-1 text-amber-900">{{ hoy() }}</span>
       </div>
 
       <!-- KPI Cards -->
