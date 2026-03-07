@@ -190,6 +190,7 @@ export class MenuComponent implements OnInit {
     });
     this.api.getPlatos().subscribe({
       next: (res) => {
+        console.log(res);
         this.platos.set(res.platos);
         this.categorias.set([...new Set(res.platos.map((p: any) => p.categoria))] as string[]);
         res.platos.forEach((p: any) => (this.cantidades[p.id_plato] = 1));

@@ -132,36 +132,36 @@ export class ApiService {
   // --- GESTIÓN DE CLIENTES ---
   getClientes(search: string = '') {
     const params = new HttpParams().set('search', search);
-    return this.http.get<any>(`${this.base}/clientes`, { params });
+    return this.http.get<any>(`${this.base}/personas/clientes`, { params });
   }
 
   crearCliente(data: any)  {
-    return this.http.post<any>(`${this.base}/clientes`, data);
+    return this.http.post<any>(`${this.base}/personas/clientes`, data);
   }
 
   actualizarCliente(id: number, data: any) {
-    return this.http.put<any>(`${this.base}/clientes/${id}`, data);
+    return this.http.put<any>(`${this.base}/personas/clientes/${id}`, data);
   }
 
   eliminarCliente(id: number) {
-    return this.http.delete<any>(`${this.base}/clientes/${id}`);
+    return this.http.delete<any>(`${this.base}/personas/clientes/${id}`);
   }
 
   // --- GESTIÓN DE USUARIOS ---
   getUsuarios(search: string = '')  {
     const params = new HttpParams().set('search', search);
-    return this.http.get<any>(`${this.base}/usuarios`, { params });
+    return this.http.get<any>(`${this.base}/personas/usuarios`, { params });
   }
 
   crearUsuario(data: any){
-    return this.http.post<any>(`${this.base}/usuarios`, data);
+    return this.http.post<any>(`${this.base}/personas/usuarios`, data);
   }
 
   actualizarUsuario(id: number, data: any){
-    return this.http.put<any>(`${this.base}/usuarios/${id}`, data);
+    return this.http.put<any>(`${this.base}/personas/usuarios/${id}`, data);
   }
 
   eliminarUsuario(id: number){
-    return this.http.delete<any>(`${this.base}/usuarios/${id}`);
+    return this.http.delete<any>(`${this.base}/personas/usuarios/${id}`);
   }
 }

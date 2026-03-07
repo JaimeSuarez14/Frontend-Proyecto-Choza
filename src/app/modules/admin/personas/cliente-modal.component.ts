@@ -7,7 +7,7 @@ import { ToastService } from '../../../core/services/toast.service';
 @Component({
   selector: 'app-cliente-modal',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [ FormsModule],
   template: `
     <div class="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all" (click)="close.emit()">
       <div class="bg-white dark:bg-gray-900 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-800 scale-in" (click)="$event.stopPropagation()">
