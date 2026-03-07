@@ -49,9 +49,20 @@ import { CommonModule } from '@angular/common';
                       {{ item.nombre_plato }}
                     </td>
                     <td class="px-6 py-4">
-                      <div class="flex items-center justify-center gap-1">
-                        <span class="font-bold text-yellow-600">{{ item.calificacion }}</span>
-                        <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                      <div class="flex items-center justify-end gap-2">
+                        <div class="flex gap-1">
+                          @for (star of [].constructor(item.calificacion); track $index) {
+                            ⭐
+                          }
+
+                          @for (star of [].constructor(5 - item.calificacion); track $index) {
+                            <i class="fa-regular fa-star text-gray-300"></i>
+                          }
+                        </div>
+
+                        <span class="text-xs text-gray-500 font-semibold">
+                          {{ item.calificacion }}/5
+                        </span>
                       </div>
                     </td>
                     <td
@@ -117,7 +128,6 @@ export class ResenasComponent implements OnInit {
         this.resenas.set(data);
         this.cargando.set(false);
         console.log(this.resenas());
-
       },
       error: (err) => {
         console.error('Error cargando reseñas:', err);
